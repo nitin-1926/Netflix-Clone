@@ -28,7 +28,6 @@ const Row = ({title, fetchUrl, isLargeRow}) => {
     };
 
     const handleClick = movie => {
-        console.log(movie);
         if (trailerUrl) {
             setTrailerUrl('');
         }
@@ -38,8 +37,8 @@ const Row = ({title, fetchUrl, isLargeRow}) => {
                 setTrailerUrl(urlParams.get('v'));
             }).catch(err => {
                 console.log(err);
-        })
-    }
+            })
+    };
 
     return (
         <div className='row'>
@@ -51,10 +50,11 @@ const Row = ({title, fetchUrl, isLargeRow}) => {
                         key={movie.id}
                         className={`row_poster ${isLargeRow && 'largeRow'}`}
                         src={`${baseUrl}${isLargeRow ? movie.poster_path : movie.backdrop_path}`}
-                        alt={movie.name}
+                        alt={movie.name || movie.original_title}
                         onClick={() => {
                             handleClick(movie);
                         }}
+                        title={!isLargeRow ? (movie.name || movie.original_title) : ''}
                     />
                 ))}
             </div>
