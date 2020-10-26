@@ -1,5 +1,5 @@
-import React, {useState, useEffect} from 'react'
-import axios from './axios';
+import React, { useState, useEffect } from 'react';
+import axios from '../../common/axios';
 import './Row.css';
 import YouTube from 'react-youtube';
 import movieTrailer from 'movie-trailer';
@@ -16,7 +16,7 @@ const Row = ({title, fetchUrl, isLargeRow}) => {
             setMovies(request.data.results);
             return request;
         }
-        fetchData()
+        fetchData();
     }, [fetchUrl]);
 
     const options = {
