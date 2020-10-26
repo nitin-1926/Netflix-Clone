@@ -42,6 +42,9 @@ const Banner = () => {
 
                 <h1 className='bannerDescription'>{truncate(movie?.overview, 150)}</h1>
             </div>
+
+            <div className="bannerFadeBottom"></div>
+            
         </header>
     )
 }
